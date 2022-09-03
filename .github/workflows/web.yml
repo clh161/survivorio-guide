@@ -59,7 +59,7 @@ jobs:
       - run: yarn build
 
   deploy:
-    if: github.ref == 'refs/heads/master'
+    # if: github.ref == 'refs/heads/master'
     needs: [build, typescript, prettier]
     runs-on: ubuntu-latest
     steps:
@@ -80,6 +80,4 @@ jobs:
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4.4.0
         with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          BRANCH: gh-pages
           FOLDER: build

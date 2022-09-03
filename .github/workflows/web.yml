@@ -55,4 +55,5 @@ jobs:
             ${{ runner.os }}-build-
             ${{ runner.os }}-
       - uses: actions/setup-node@v3
+      - run: yarn install
       - run: yarn build

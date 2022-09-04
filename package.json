@@ -18,7 +18,7 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-scripts": "5.0.1",
-    "typescript": "4.8.2",
+    "typescript": "^4.8.2",
     "web-vitals": "2.1.4"
   },
   "scripts": {
@@ -47,6 +47,8 @@
     ]
   },
   "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.36.1",
+    "@typescript-eslint/parser": "^5.36.1",
     "eslint": "^8.23.0",
     "prettier": "2.7.1"
   }

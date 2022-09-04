@@ -78,7 +78,7 @@ jobs:
 
   deploy:
     if: github.ref == 'refs/heads/master'
-    needs: [build, typescript, prettier]
+    needs: [build, typescript, prettier, eslint]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3

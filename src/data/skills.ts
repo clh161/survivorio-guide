@@ -57,3 +57,38 @@ SKILLS.push({
     },
   ],
 });
+
+SKILLS.push({
+  name: 'RPG',
+  cd: 3,
+  variants: [
+    {
+      level: 1,
+      effect: {
+        atkCount: 1,
+        dmgOfAtk: 2,
+      },
+    },
+    {
+      level: 2,
+      effect: {
+        atkCount: 1,
+        dmgOfAtk: 4,
+      },
+    },
+    {
+      level: 3,
+      effect: {
+        atkCount: 2,
+        dmgOfAtk: 4,
+      },
+    },
+    {
+      level: 4,
+      effect: {
+        atkCount: 2,
+        dmgOfAtk: 6,
+      },
+    },
+  ],
+});

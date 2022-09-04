@@ -20,7 +20,7 @@ import ListItemIcon from '@mui/material/ListItemIcon/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText/ListItemText';
 import DashboardIcon from '@mui/icons-material/Dashboard';
 
-function Copyright(props: any) {
+function Copyright() {
   return (
     <Typography
       variant="body2"

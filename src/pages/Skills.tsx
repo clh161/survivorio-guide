@@ -29,9 +29,27 @@ export default function Skills() {
                 const { dmgOfAtk } = variant.effect;
                 if (dmgOfAtk != null) {
                   effectDescriptions.push(`${dmgOfAtk * 100}% Damage`);
+                  const previousLevel = skill.variants.find((otherVariant) => {
+                    return otherVariant.level === variant.level - 1;
+                  });
+                  const previousDmgOfAtk = previousLevel?.effect.dmgOfAtk;
+                  if (previousDmgOfAtk != null) {
+                    const increase =
+                      Math.round(
+                        ((dmgOfAtk - previousDmgOfAtk) / previousDmgOfAtk) *
+                          10000
+                      ) / 100;
+                    effectDescriptions.push(`+${increase}%`);
+                  }
                 }
 
-                return <TableCell>{effectDescriptions.join('\n')}</TableCell>;
+                return (
+                  <TableCell>
+                    {effectDescriptions.map((effectDescription) => (
+                      <div>{effectDescription}</div>
+                    ))}
+                  </TableCell>
+                );
               })}
             </TableRow>
           ))}

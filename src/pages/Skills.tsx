@@ -4,26 +4,35 @@ import TableCell from '@mui/material/TableCell/TableCell';
 import TableContainer from '@mui/material/TableContainer/TableContainer';
 import TableRow from '@mui/material/TableRow/TableRow';
 import React from 'react';
+import { SKILLS } from '../data/skills';
+
+const LEVELS = [1, 2, 3, 4, 5, 6];
 
 export default function Skills() {
-  const skills = [
-    {
-      name: 'Kunai',
-    },
-  ];
-
   return (
     <TableContainer component={Paper}>
       <Table aria-label="Skill table">
         <TableHead>
           <TableRow>
             <TableCell>Name</TableCell>
+            {LEVELS.map((level) => {
+              return <TableCell>{level}</TableCell>;
+            })}
           </TableRow>
         </TableHead>
         <TableBody>
-          {skills.map((skill) => (
+          {SKILLS.map((skill) => (
             <TableRow key={skill.name}>
-              <TableCell>{skill.name}</TableCell>
+              <TableCell component="th">{skill.name}</TableCell>
+              {skill.variants.map((variant) => {
+                const effectDescriptions = [];
+                const { dmgOfAtk } = variant.effect;
+                if (dmgOfAtk != null) {
+                  effectDescriptions.push(`${dmgOfAtk * 100}% Damage`);
+                }
+
+                return <TableCell>{effectDescriptions.join('\n')}</TableCell>;
+              })}
             </TableRow>
           ))}
         </TableBody>

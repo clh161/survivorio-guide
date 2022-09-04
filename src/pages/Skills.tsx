@@ -34,11 +34,9 @@ export default function Skills() {
                   });
                   const previousDmgOfAtk = previousLevel?.effect.dmgOfAtk;
                   if (previousDmgOfAtk != null) {
-                    const increase =
-                      Math.round(
-                        ((dmgOfAtk - previousDmgOfAtk) / previousDmgOfAtk) *
-                          10000
-                      ) / 100;
+                    const increase = Math.round(
+                      (dmgOfAtk - previousDmgOfAtk) * 100
+                    );
                     effectDescriptions.push(`+${increase}%`);
                   }
                 }

@@ -92,3 +92,24 @@ SKILLS.push({
     },
   ],
 });
+
+SKILLS.push({
+  name: 'Drill',
+  cd: 1.5,
+  variants: [
+    {
+      level: 1,
+      effect: {
+        atkCount: 1,
+        dmgOfAtk: 1,
+      },
+    },
+    {
+      level: 1,
+      effect: {
+        atkCount: 2,
+        dmgOfAtk: 1,
+      },
+    },
+  ],
+});

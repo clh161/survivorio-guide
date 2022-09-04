@@ -22,12 +22,7 @@ import DashboardIcon from '@mui/icons-material/Dashboard';
 
 function Copyright() {
   return (
-    <Typography
-      variant="body2"
-      color="text.secondary"
-      align="center"
-      {...props}
-    >
+    <Typography variant="body2" color="text.secondary" align="center">
       {'Copyright © '}
       <Link color="inherit" href="https://mui.com/">
         Your Website
@@ -198,7 +193,7 @@ export default function App() {
                 ></Paper>
               </Grid>
             </Grid>
-            <Copyright sx={{ pt: 4 }} />
+            <Copyright />
           </Container>
         </Box>
       </Box>

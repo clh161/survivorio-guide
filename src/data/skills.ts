@@ -1,6 +1,7 @@
 export interface Skill {
   name: string;
   variants: Array<SkillVariant>;
+  cd: number;
 }
 
 export interface SkillVariant {
@@ -17,6 +18,7 @@ export const SKILLS: Array<Skill> = [];
 
 SKILLS.push({
   name: 'Kunai',
+  cd: 0.5,
   variants: [
     {
       level: 1,

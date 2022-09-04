@@ -87,18 +87,21 @@ function AllSkillTable() {
               <TableCell component="th">{skill.name}</TableCell>
               {skill.variants.map((variant) => {
                 const effectDescriptions = [];
-                const { dmgOfAtk } = variant.effect;
+                const { dmgOfAtk, atkCount } = variant.effect;
                 if (dmgOfAtk != null) {
-                  effectDescriptions.push(`${dmgOfAtk * 100}% Damage`);
+                  const dps = (dmgOfAtk * atkCount) / skill.cd;
+                  effectDescriptions.push(`DPS: ${Math.round(dps * 100)}%`);
                   const previousLevel = skill.variants.find((otherVariant) => {
                     return otherVariant.level === variant.level - 1;
                   });
                   const previousDmgOfAtk = previousLevel?.effect.dmgOfAtk;
-                  if (previousDmgOfAtk != null) {
-                    const increase = Math.round(
-                      (dmgOfAtk - previousDmgOfAtk) * 100
+                  const previousAtkCount = previousLevel?.effect.atkCount;
+                  if (previousDmgOfAtk != null && previousAtkCount != null) {
+                    const previousDps =
+                      (previousDmgOfAtk * previousAtkCount) / skill.cd;
+                    effectDescriptions.push(
+                      `+${Math.round((dps - previousDps) * 100)}%`
                     );
-                    effectDescriptions.push(`+${increase}%`);
                   }
                 }
 

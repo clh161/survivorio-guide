@@ -16,7 +16,7 @@ export default function Skills() {
     <TableContainer component={Paper}>
       <Table aria-label="Skill table">
         <TableHead>
-          <TableRow>{/* <TableCell>Name</TableCell> */}</TableRow>
+          <TableRow>{<TableCell>Name</TableCell>}</TableRow>
         </TableHead>
         <TableBody>
           {skills.map((skill) => (

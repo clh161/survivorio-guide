@@ -1,14 +1,75 @@
-import { Paper, TableHead, TableBody } from '@mui/material';
+import {
+  Paper,
+  TableHead,
+  TableBody,
+  Container,
+  Grid,
+  Radio,
+  FormControlLabel,
+  RadioGroup,
+} from '@mui/material';
 import Table from '@mui/material/Table/Table';
 import TableCell from '@mui/material/TableCell/TableCell';
 import TableContainer from '@mui/material/TableContainer/TableContainer';
 import TableRow from '@mui/material/TableRow/TableRow';
-import React from 'react';
 import { SKILLS } from '../data/skills';
 
 const LEVELS = [1, 2, 3, 4, 5, 6];
 
 export default function Skills() {
+  return (
+    <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
+      <Grid container spacing={3}>
+        <Grid item xs={4}>
+          <SelectedSkillTable />
+        </Grid>
+        <Grid item xs={8}>
+          <AllSkillTable />
+        </Grid>
+      </Grid>
+    </Container>
+  );
+}
+
+function SelectedSkillTable() {
+  return (
+    <TableContainer component={Paper}>
+      <Table aria-label="Skill table">
+        <TableHead>
+          <TableRow>
+            <TableCell>Skill</TableCell>
+            <TableCell>Level</TableCell>
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          {SKILLS.map((skill) => {
+            return (
+              <TableRow key={skill.name}>
+                <TableCell component="th">{skill.name}</TableCell>
+                <TableCell component="th">
+                  <RadioGroup row defaultValue={0}>
+                    {[0, 1, 2, 3, 4, 5, 6].map((level) => {
+                      return (
+                        <FormControlLabel
+                          value="top"
+                          control={<Radio />}
+                          label={level}
+                          labelPlacement="top"
+                        />
+                      );
+                    })}
+                  </RadioGroup>
+                </TableCell>
+              </TableRow>
+            );
+          })}
+        </TableBody>
+      </Table>
+    </TableContainer>
+  );
+}
+
+function AllSkillTable() {
   return (
     <TableContainer component={Paper}>
       <Table aria-label="Skill table">
